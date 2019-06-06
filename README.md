@@ -27,10 +27,10 @@ json,restful,spring boot,vue.....
 [spring boot](https://spring.io/)
 
 # you can learn....
-## 換掉mock.js 套上 spring boot 後端返回數據
-## 客製化table (working)
-- [x] 取得後端數據 
-- [x] 結合右鍵選單 
-- [x] 新增下拉式選單
-- [x] 簡單多重篩選 (P)
+* 換掉mock.js 套上 spring boot 後端返回數據
+* 客製化table (working)
+  - [x] 取得後端數據 
+  - [x] 結合右鍵選單 
+  - [x] 新增下拉式選單
+  - [x] 簡單多重篩選 (P)
 

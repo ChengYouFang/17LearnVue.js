@@ -1,0 +1,73 @@
+package com.model;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class ListItem {
+	
+	@Autowired  private Integer id;
+	@Autowired private String title ;
+	@Autowired private Boolean status ; 
+	@Autowired private String author; 
+	@Autowired private String displaytime ;
+	@Autowired  private String pagviews ;
+    
+
+    
+//	private List<Author> author = new ArrayList<Author>();
+
+    public void setid (Integer id){
+    	this.id = id;
+    }
+    public Integer getid(){
+    	return  id;
+    }
+
+    public void settitle(String token){
+    	this.title = token;
+    }
+    public String gettitle(){
+    	return  title;
+    }
+    public void setstatus(Boolean status){
+    	this.status = status;
+    }
+    public Boolean getstatus(){
+    	return  status;
+    }
+    public void setauthor(String author){
+    	this.author= author;
+    }
+    public String getauthor(){
+    	return  author;
+    }
+    public void setdisplaytime(String displaytime){
+    	this.displaytime = displaytime;
+    }
+    public String getdisplaytime(){
+    	return  displaytime;
+    }
+    public void setpagviews (String pagviews){
+    	this.pagviews = pagviews;
+    }
+    public String gettoken(){
+    	return  pagviews;
+    }
+	public void show_data ()
+	{
+		System.out.println(this.id + this.title);
+		
+	}
+    public ListItem(){
+
+    }
+
+
+	
+//	public List<Author> getAuthor() {
+//		return author;
+//	}
+//	public void setAuthor(List<Author> author) {
+//		this.author = author;
+//	}
+
+}

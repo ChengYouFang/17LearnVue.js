@@ -1,0 +1,10 @@
+package com.demo;
+public class Shop {
+	private String name;
+	private String pwd;
+	//getter and setter methods
+	public set_name(String tmp)
+	{
+		
+	}
+}

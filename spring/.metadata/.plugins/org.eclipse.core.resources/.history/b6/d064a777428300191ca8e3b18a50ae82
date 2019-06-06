@@ -1,0 +1,7 @@
+package com.demo;
+
+public class Shop {
+	String name;
+	String staffName[];
+	//getter and setter methods
+}

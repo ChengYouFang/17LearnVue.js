@@ -1,0 +1,53 @@
+package com.model;
+
+public class Dome {
+
+    private Integer id;
+    private String name;
+    private String data;
+    private String[] list={"hao","haouhao","keyi"};
+
+    public Dome(){
+
+    }
+
+
+    public Dome(Integer id, String name, String[] tmp) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.list =  tmp;
+        
+    }
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public void setlist (String[ ] tmp)
+    {
+    	this.list = tmp;
+    	
+    }
+    public String[] getList()
+    {
+    	
+    	return  this.list;
+    }
+
+    
+
+}

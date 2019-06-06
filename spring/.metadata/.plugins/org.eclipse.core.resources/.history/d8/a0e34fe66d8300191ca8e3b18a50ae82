@@ -1,0 +1,24 @@
+package com.model;
+
+public class Dome2 {
+	private String name;
+
+    private String[] list={"admin"};
+    
+//	private List<Author> author = new ArrayList<Author>();
+
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+//	public List<Author> getAuthor() {
+//		return author;
+//	}
+//	public void setAuthor(List<Author> author) {
+//		this.author = author;
+//	}
+
+}

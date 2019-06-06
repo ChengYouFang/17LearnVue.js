@@ -1,0 +1,67 @@
+package com.model;
+
+public class ListItem {
+	
+    private Integer id;
+    private String title ;
+    private String status ; 
+    private String author; 
+    private String display_time ;
+    private String pagviews ;
+    
+
+    
+//	private List<Author> author = new ArrayList<Author>();
+
+    public void setid (Integer id){
+    	this.id = id;
+    }
+    public Integer getid(){
+    	return  id;
+    }
+
+    public void settitle(String token){
+    	this.title = token;
+    }
+    public String gettitle(){
+    	return  title;
+    }
+    public void setstatus(String status){
+    	this.status = status;
+    }
+    public String getstatus(){
+    	return  status;
+    }
+    public void setauthor(String author){
+    	this.author= author;
+    }
+    public String gettoken(){
+    	return  token;
+    }
+    public void settoken (String token){
+    	this.token = token;
+    }
+    public String gettoken(){
+    	return  token;
+    }
+    public void settoken (String token){
+    	this.token = token;
+    }
+    public String gettoken(){
+    	return  token;
+    }
+	
+    public ListItem(){
+
+    }
+
+
+	
+//	public List<Author> getAuthor() {
+//		return author;
+//	}
+//	public void setAuthor(List<Author> author) {
+//		this.author = author;
+//	}
+
+}

@@ -1,0 +1,62 @@
+package com.model;
+
+import java.awt.print.Book;
+
+public class Dome {
+
+    private Integer code;
+    private Dome2 data;
+    private String name;
+
+    private String[] list={"hao","haouhao","keyi"};
+    
+	
+    public Dome(){
+
+    }
+
+
+    public Dome(Integer code, String data,String name) {
+        super();
+        this.code = code;
+        this.name = name;
+        this.list =  tmp;
+       
+        
+    }
+
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public void setlist (String[ ] tmp)
+    {
+    	this.list = tmp;
+    	
+    }
+    public String[] getList()
+    {
+    	
+    	return  this.list;
+    }
+
+	public Dome2 getBook() {
+		return book;
+	}
+	public void setBook(Dome2 book) {
+		this.book = book;
+	}
+}

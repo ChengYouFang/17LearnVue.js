@@ -11,14 +11,17 @@
       @selection-change="handleSelectionChange"
       @current-change="handleCurrentChange"
       @cell-mouse-enter="openDetails"
+      @cell-click="tmp"
       @row-contextmenu="showmenu($row,$event, { name: item, index })"
     >
       <el-table-column type="selection" width="55"></el-table-column>
       <el-table-column align="center" label="ID" width="95" sortable prop="id">
         <template slot-scope="scope">{{ scope.row.id }}</template>
       </el-table-column>
-      <el-table-column label="Title" sortable prop="name">
-        <template slot-scope="scope">{{ scope.row.title }}</template>
+      <el-table-column label="Name" sortable prop="name">
+        <template slot-scope="scope">
+          <span class="link-type" @click="dialogFormVisible = true">{{ scope.row.name }}</span>
+        </template>
       </el-table-column>
       <el-table-column label="Author" width="110" align="center">
         <template slot-scope="scope">
@@ -52,23 +55,88 @@
       <el-table-column align="center" prop="created_at" label="Display_time" width="200">
         <template slot-scope="scope">
           <i class="el-icon-time"/>
-          <span>{{ scope.row.display_time }}</span>
+          <span>{{ scope.row.displaytime }}</span>
         </template>
+      </el-table-column>
 
+      <el-table-column min-width="300px" label="Title" prop="title">
+        <template slot-scope="{row}">
+          <template v-if="row.edit">
+            <el-input v-model="row.title" class="edit-input" size="small"/>
+            <el-button
+              class="cancel-btn"
+              size="small"
+              icon="el-icon-refresh"
+              type="warning"
+              @click="cancelEdit(row)"
+            >cancel</el-button>
+          </template>
+          <span v-else>{{ row.title }}</span>
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" label="Actions" width="200">
+        <template slot-scope="{row}">
+          <el-button
+            v-if="row.edit"
+            type="success"
+            size="small"
+            icon="el-icon-circle-check-outline"
+            @click="confirmEdit(row)"
+          >Ok</el-button>
+          <el-button
+            v-else
+            type="primary"
+            size="small"
+            icon="el-icon-edit"
+            @click="row.edit=!row.edit"
+          >Edit</el-button>
+        </template>
         <template slot="header" slot-scope="scope">
           <el-input v-model="search" size="mini" placeholder="請輸入要搜尋文字"/>
         </template>
       </el-table-column>
     </el-table>
+    <el-dialog
+      title="Edit"
+      :close-on-click-modal="false"
+      :visible.sync="dialogFormVisible"
+      ref="testdialog"
+    >
+      <el-form :model="form">
+        <el-form-item label="搜尋" :label-width="formLabelWidth">
+          <el-input v-model="form.name" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="院區" :label-width="formLabelWidth">
+          <el-select v-model="form.region" placeholder="請選擇院區">
+            <el-option label="区域一" value="shanghai"></el-option>
+            <el-option label="区域二" value="beijing"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-table :data="gridData">
+          <el-table-column property="date" label="日期" width="150"></el-table-column>
+          <el-table-column property="name" label="姓名" width="200"></el-table-column>
+          <el-table-column property="address" label="地址"></el-table-column>
+        </el-table>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="tmp2">确 定</el-button>
+      </div>
+    </el-dialog>
 
     <vue-context ref="menu">
       <template slot-scope="child" v-if="child.data">
         <li>
-          <a
-            class="textder"
-            href="#"
-            @click.prevent="alertName"
-          >Alert name:{{currentRow.title}} status:{{ currentRow.status }}</a>
+          <a class="textder" href="#" @click.prevent="alertName">
+            Alert name : {{currentRow.name}}
+            <br>
+            Status : {{ currentRow.status }}
+            <br>
+            City : {{ currentRow.city }}
+            <br>
+            Title : {{ currentRow.title }}
+          </a>
         </li>
         <li>
           <a class="textder" href="#" @click.prevent="remove( list)">Delete</a>
@@ -76,7 +144,7 @@
       </template>
       <span>{{ result1 }}</span>
     </vue-context>
-    <div style="margin-top: 20px">
+    <div style="margin-top: 20px ">
       <el-button @click="toggleSelection([list[1], list[2]])">切换第二、第三行的选中状态</el-button>
       <el-button @click="toggleSelection()">取消选择</el-button>
     </div>
@@ -140,7 +208,41 @@ export default {
           label: "广州"
         }
       ],
-      value6: ""
+      gridData: [
+        {
+          date: "2016-05-02",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄"
+        },
+        {
+          date: "2016-05-04",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄"
+        },
+        {
+          date: "2016-05-01",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄"
+        },
+        {
+          date: "2016-05-03",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄"
+        }
+      ],
+
+      value6: "",
+      dialogFormVisible: false,
+      form: {
+        name: "",
+        region: "",
+        date1: "",
+        date2: "",
+        delivery: false,
+        type: [],
+        resource: "",
+        desc: ""
+      }
     };
   },
   created() {
@@ -151,6 +253,13 @@ export default {
       this.listLoading = true;
       getList().then(response => {
         this.list = response.data.items;
+
+        const items = response.data.items;
+        this.list = items.map(v => {
+          this.$set(v, "edit", false); // https://vuejs.org/v2/guide/reactivity.html
+          v.originalTitle = v.title; //  will be used when user click the cancel botton
+          return v;
+        });
         this.listLoading = false;
       });
     },
@@ -202,7 +311,8 @@ export default {
       //  console.log(this.$refs.singleTable);
       // console.log(this.$refs.singleTable.data[this.testdata.id]);
       //this.selectitem(this.$refs.singleTable.data, id);
-      for (var i = 0; i < 10; i++) {
+      let length = this.$refs.singleTable.data.length;
+      for (var i = 0; i < length; i++) {
         if (this.$refs.singleTable.data[i].id == this.testdata.id) {
           this.$refs.singleTable.setCurrentRow(this.$refs.singleTable.data[i]);
           //   console.log("qwe");
@@ -235,6 +345,7 @@ export default {
       //   data =>
       //     !search || data.title.toLowerCase().includes(search.toLowerCase())
       // );
+
       let new_serach = search.split(" ");
       var new_data = [];
       //  console.log(tmp);
@@ -262,15 +373,18 @@ export default {
               // console.log(newsp[j]);
 
               //針對各個欄位 自訂義 篩選邏輯
-              if (newspkey[j].toString() == "title") {
+              if (newspkey[j].toString() == "name") {
                 pass = newsp[j] == new_serach[i];
               } else if (newspkey[j].toString() == "status") {
                 pass = newsp[j].toString().indexOf(new_serach[i]) >= 0 || pass;
+              } else if (newspkey[j].toString() == "title") {
+                pass = newsp[j].toString().indexOf(new_serach[i]) >= 0;
               }
-
+              if (new_data.includes(data) == false)
+                if (pass) new_data.push(data);
               // if (newsp[j].toString().indexOf(new_serach[i]) >= 0) pass = true;
             }
-            if (pass) new_data.push(data);
+
             // newsp.forEach(function(element) {
             //   console.log(newsp);
             //   // if (element.indexOf(new_serach[i]) >= 0) pass = true;
@@ -323,6 +437,64 @@ export default {
     handleSelectionChange(val) {
       this.multipleSelection = val;
       console.log(this.multipleSelection);
+    },
+    cancelEdit(row) {
+      row.title = row.originalTitle;
+      row.edit = false;
+      this.$message({
+        message: "The title has been restored to the original value",
+        type: "warning"
+      });
+    },
+    confirmEdit(row) {
+      row.edit = false;
+      row.originalTitle = row.title;
+      this.$message({
+        message: "The title has been edited",
+        type: "success"
+      });
+    },
+    rowdblclcik(row, column, event) {
+      if (row.edit == false) {
+        row.edit = true;
+        row.originalTitle = row.title;
+        this.$message({
+          message: "The title has been edited" + row.edit,
+          type: "success"
+        });
+      }
+    },
+    handleUpdate(row) {
+      this.temp = Object.assign({}, row); // copy obj
+      this.temp.timestamp = new Date(this.temp.timestamp);
+      this.dialogStatus = "update";
+      this.dialogFormVisible = true;
+      this.$nextTick(() => {
+        this.$refs["dataForm"].clearValidate();
+      });
+    },
+    tmp(row, column, cell, event) {
+      console.log(cell);
+      //console.log(row[column.property]);
+
+      console.log(column.property);
+      if (row.edit == false && column.property == "title") {
+        row.edit = true;
+        row.originalTitle = row.title;
+        this.$message({
+          message: "The title has been edited" + row.edit,
+          type: "success"
+        });
+      }
+    },
+    tmp2() {
+      this.$notify({
+        title: "成功",
+        message: "更新成功",
+        type: "success",
+        duration: 2000
+      });
+      this.dialogFormVisible = false;
     }
   },
   mounted() {
@@ -334,3 +506,19 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.edit-input {
+  padding-right: 100px;
+}
+.cancel-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
+.link-type,
+.link-type:focus {
+  color: #337ab7;
+  cursor: pointer;
+}
+</style>

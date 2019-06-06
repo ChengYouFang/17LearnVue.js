@@ -7,7 +7,6 @@ public class ListItem {
 	@Autowired  private Integer id;
 	@Autowired private String name ;
 	@Autowired private String title ;
-	@Autowired private String title2 ;
 	@Autowired private Boolean status ; 
 	@Autowired private String author; 
 	@Autowired private String displaytime ;
@@ -39,21 +38,12 @@ public class ListItem {
     	return  id;
     }
 
-    public void settitle(String title){
-    	this.title = title;
+    public void settitle(String token){
+    	this.title = token;
     }
     public String gettitle(){
     	return  title;
     }
-    
-    public void settitle2(String title){
-    	this.title = title;
-    }
-    public String gettitle2(){
-    	return  title;
-    }
-
-    
     public void setstatus(Boolean status){
     	this.status = status;
     }

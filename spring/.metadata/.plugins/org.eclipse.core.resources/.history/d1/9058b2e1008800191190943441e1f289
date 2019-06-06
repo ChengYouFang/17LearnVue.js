@@ -179,10 +179,10 @@ public class DemoApplication {
 		items.setstatus(true);
 	    else
 	    	items.setstatus(false);
-	    items.setname("name" + i);
-		items.settitle("title" + i);
+	    
+		items.settitle("test" + i);
 		items.setauthor("null");
-		items.setdisplaytime("2016-05-02" );
+		items.setdisplaytime("null");
 		items.setpagviews("null");
 		items.setcity("北京");
 		items.show_data();

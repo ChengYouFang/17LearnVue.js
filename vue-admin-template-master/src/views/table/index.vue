@@ -246,10 +246,10 @@ export default {
 
           // console.log($.inArray((search, data)));
           // console.log(Object.values(data));
-          let pass;
+
           let newsp = Object.values(data);
           let newspkey = Object.keys(data);
-
+          let pass;
           for (let i = 0; i < new_serach.length; i++) {
             ///簡單搜尋
             // console.log(Object.values(data).indexOf(new_serach[i]));
@@ -270,7 +270,7 @@ export default {
 
               // if (newsp[j].toString().indexOf(new_serach[i]) >= 0) pass = true;
             }
-
+            if (pass) new_data.push(data);
             // newsp.forEach(function(element) {
             //   console.log(newsp);
             //   // if (element.indexOf(new_serach[i]) >= 0) pass = true;
@@ -291,7 +291,6 @@ export default {
           //   }
           // });
 
-          if (pass) new_data.push(data);
           // for (var i = 0; i < data.length; i++) {
           //   new_data.push(data[i]);
           // }

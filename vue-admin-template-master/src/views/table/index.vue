@@ -1,18 +1,20 @@
+// :data="filtermethod(list,search)"
 <template>
   <div class="app-container">
     <el-table
       ref="singleTable"
       oncontextmenu="return false"
       v-loading="listLoading"
-      :data="filtermethod(list,search)"
+      :data="filteredData"
       element-loading-text="Loading"
       fit
       highlight-current-row
-      @selection-change="handleSelectionChange"
+      height="800"
       @current-change="handleCurrentChange"
       @cell-mouse-enter="openDetails"
       @cell-click="tmp"
       @row-contextmenu="showmenu($row,$event, { name: item, index })"
+      :data-size="list"
     >
       <el-table-column type="selection" width="55"></el-table-column>
       <el-table-column align="center" label="ID" width="95" sortable prop="id">
@@ -104,10 +106,10 @@
       ref="testdialog"
     >
       <el-form :model="form">
-        <el-form-item label="搜尋" :label-width="formLabelWidth">
+        <el-form-item label="搜尋">
           <el-input v-model="form.name" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="院區" :label-width="formLabelWidth">
+        <el-form-item label="院區">
           <el-select v-model="form.region" placeholder="請選擇院區">
             <el-option label="区域一" value="shanghai"></el-option>
             <el-option label="区域二" value="beijing"></el-option>
@@ -145,6 +147,7 @@
       <span>{{ result1 }}</span>
     </vue-context>
     <div style="margin-top: 20px ">
+      <el-button @click="reload">reload</el-button>
       <el-button @click="toggleSelection([list[1], list[2]])">切换第二、第三行的选中状态</el-button>
       <el-button @click="toggleSelection()">取消选择</el-button>
     </div>
@@ -154,7 +157,9 @@
 <script>
 import { getList } from "@/api/table";
 import { VueContext } from "vue-context";
+
 export default {
+  name: "loadmore",
   components: { VueContext },
   filters: {
     statusFilter(status) {
@@ -169,6 +174,17 @@ export default {
   computed: {
     showReset() {
       return this.items.length < items.length;
+    },
+    filteredData() {
+      return this.list.filter((item, index) => {
+        if (index < this.currentStartIndex) {
+          return false;
+        } else if (index > this.currentEndIndex) {
+          return false;
+        } else {
+          return true;
+        }
+      });
     }
   },
 
@@ -177,7 +193,7 @@ export default {
       testdata: null,
       result1: null,
       result2: null,
-      list: null,
+      list: [],
       listLoading: true,
       currentRow: null,
       search: "",
@@ -242,26 +258,48 @@ export default {
         type: [],
         resource: "",
         desc: ""
-      }
+      },
+      currentStartIndex: 0,
+      currentEndIndex: 20
     };
   },
   created() {
     this.fetchData();
   },
+  computed: {
+    filteredData() {
+      return this.list.filter((item, index) => {
+        if (index < this.currentStartIndex) {
+          return true;
+        } else if (index > this.currentEndIndex) {
+          console.log("teeeeeeeeeeeeeeee1");
+          return false;
+        } else {
+          console.log("teeeeeeeeeeeeeeee2");
+          return true;
+        }
+      });
+    }
+  },
   methods: {
     fetchData() {
       this.listLoading = true;
-      getList().then(response => {
-        this.list = response.data.items;
 
+      getList({
+        id: this.currentStartIndex.toString()
+      }).then(response => {
         const items = response.data.items;
+
         this.list = items.map(v => {
           this.$set(v, "edit", false); // https://vuejs.org/v2/guide/reactivity.html
           v.originalTitle = v.title; //  will be used when user click the cancel botton
           return v;
         });
         this.listLoading = false;
+        this.list = this.list;
+        this.filteredData;
       });
+      // console.log(this.list);
     },
     alertName() {
       // event.preventDefault();
@@ -291,11 +329,10 @@ export default {
       this.items = [...items];
     },
     mouseIsMoving(e) {
-      var x = e.pageX;
-      var y = e.pageY;
-
-      this.result1 = x;
-      this.result2 = y;
+      setTimeout(() => {
+        this.result1 = e.pageX;
+        this.result2 = e.pageY;
+      }, 100);
     },
     selectitem(item, id) {
       for (var i = 0; i < item.length; i++) {
@@ -495,10 +532,50 @@ export default {
         duration: 2000
       });
       this.dialogFormVisible = false;
+    },
+    reload() {
+      this.fetchData();
+    },
+
+    getMoreLog() {
+      console.log("scrollTop not");
+
+      this.dom = this.$refs.singleTable.bodyWrapper;
+      this.dom.scrollTop = this.dom.scrollTop - 100;
+      this.currentStartIndex = this.currentStartIndex + 20;
+
+      this.currentEndIndex = 0;
+      this.fetchData();
     }
   },
   mounted() {
     window.addEventListener("mousemove", this.mouseIsMoving);
+    // 获取需要绑定的table
+    this.dom = this.$refs.singleTable.bodyWrapper;
+    this.dom.addEventListener("scroll", () => {
+      // 滚动距离
+      let scrollTop = this.dom.scrollTop;
+      // 变量windowHeight是可视区的高度
+      let windowHeight = this.dom.clientHeight || this.dom.clientHeight;
+      // 变量scrollHeight是滚动条的总高度
+      let scrollHeight = this.dom.scrollHeight || this.dom.scrollHeight;
+      if (scrollTop + windowHeight === scrollHeight) {
+        // 获取到的不是全部数据 当滚动到底部 继续获取新的数据
+        if (!this.allData) this.getMoreLog();
+        console.log(
+          "scrollTop",
+          scrollTop + "windowHeight",
+          windowHeight + "scrollHeight",
+          scrollHeight
+        );
+      }
+      console.log(
+        "scrollTop",
+        scrollTop + "windowHeight",
+        windowHeight + "scrollHeight",
+        scrollHeight
+      );
+    });
   }, //mounted
 
   destroyed: function() {
@@ -520,5 +597,17 @@ export default {
 .link-type:focus {
   color: #337ab7;
   cursor: pointer;
+}
+</style>
+
+
+
+
+<style scoped>
+.el-table__body-wrapper .el-table__row td {
+  display: none;
+}
+.el-table__body-wrapper .el-table__row {
+  height: 38px;
 }
 </style>

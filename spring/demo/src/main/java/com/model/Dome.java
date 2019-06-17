@@ -6,7 +6,7 @@ public class Dome {
 
     private Integer code;
     private Dome2 data;
-
+    
 	
     public Dome(){
 

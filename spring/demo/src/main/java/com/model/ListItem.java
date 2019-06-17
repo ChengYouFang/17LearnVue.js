@@ -52,8 +52,6 @@ public class ListItem {
     public String gettitle2(){
     	return  title;
     }
-
-    
     public void setstatus(Boolean status){
     	this.status = status;
     }

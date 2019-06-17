@@ -66,6 +66,12 @@ import com.model.Token;
 @EnableAutoConfiguration
 @CrossOrigin(origins = "http://172.16.7.21:9527", maxAge = 3600)
 public class DemoApplication {
+	public Integer currentindex;
+	public Integer currentindexend;
+	List listest= new List();
+
+ListData item = new ListData ();
+
 //	  @RequestMapping("/test/{test}")
 //	  @ResponseBody
 //	    public String sayHello(@PathVariable("test") String test) {
@@ -128,7 +134,8 @@ public class DemoApplication {
 	                registry.addMapping("/httpMethod/**")
 	                        .allowedOrigins("*");//允许域名访问，如果*，代表所有域名
 	                //.allowedOrigins("http://localhost:9527");//允许域名访问，如果*，代表所有域名
-	                registry.addMapping("/httpMethod2/**")
+	                registry.addMapping("/httpMethod2**")
+	                .allowedMethods("GET")
                     .allowedOrigins("*");//允许域名访问，如果*，代表所有域名
 	            }
 	        };
@@ -161,26 +168,24 @@ public class DemoApplication {
     @GetMapping("/httpMethod2")
 	@ResponseBody
 
-	public List httpMethod2() throws JsonProcessingException{
-	List listest= new List();
+	public List httpMethod2(@RequestParam String id) throws JsonProcessingException{
+	System.out.print(id);
 
-	ListData item = new ListData ();
-	
 	listest.setCode(20000);
 	
 	 Random ran = new Random();
-	for ( int i = 0 ; i < 10; i ++)
+	for ( int i = 0 ; i < 20; i ++)
 	{
 		ListItem items = new ListItem ();
-		items.setid(i);
+		items.setid(item.getTotal());
 		  
 	    Integer tmp =ran.nextInt(2)+1;
 	    if(tmp == 1 )
 		items.setstatus(true);
 	    else
 	    	items.setstatus(false);
-	    items.setname("name" + i);
-		items.settitle("title" + i);
+	    items.setname("name" + item.getTotal());
+		items.settitle("title" + item.getTotal());
 		items.setauthor("null");
 		items.setdisplaytime("2016-05-02" );
 		items.setpagviews("null");
@@ -195,7 +200,7 @@ public class DemoApplication {
 	ObjectMapper objectMapper = new ObjectMapper();
 	
 	String userJsonStr = objectMapper.writeValueAsString(listest);
-	System.out.print(userJsonStr);
+	//System.out.print(userJsonStr);
 	return listest;
 	}
 	

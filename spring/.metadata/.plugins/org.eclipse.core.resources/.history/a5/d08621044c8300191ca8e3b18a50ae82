@@ -1,8 +1,0 @@
-package com.demo;
-public class Shop {
-	public 
-	String name;
-	String pwd;
-	//getter and setter methods
-	
-}

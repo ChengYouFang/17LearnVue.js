@@ -15,7 +15,7 @@ public class ListData {
     	this.total = total;
     	this.items = items;
     }
-    public Integer gettotal(){
+    public Integer getTotal(){
     	return  total;
     }
     public List<ListItem> getitems()
@@ -26,13 +26,14 @@ public class ListData {
     public void addList (ListItem tmp)
     {
     	this.items.add(tmp);
+    	this.total = items.size();	
     }
     public void  coutTotlal()
     {
     	this.total = items.size();
     	
     }
-	
+
     public ListData(){
     	this.total = 0;
     	this.items =new ArrayList<>();

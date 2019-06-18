@@ -8,12 +8,12 @@
   </div>
 </template>
 <script>
-  export default {
-    data () {
-      return {
-        userName: 'Steven Chou',
-        userId: 9527,
-      }
-    }
+export default {
+  data() {
+    return {
+      userName: "Steven Chou",
+      userId: 9527
+    };
   }
+};
 </script>

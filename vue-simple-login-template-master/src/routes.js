@@ -1,7 +1,7 @@
-import Login from './components/Login.vue';
-import Header from './components/Header.vue';
-import Home from './components/Home.vue';
-import UserInfo from './components/UserInfo.vue';
+import Login from './components/login.vue'
+import Header from './components/header.vue'
+import Home from './components/home.vue'
+import UserInfo from './components/userInfo.vue'
 
 export const routes = [
   {
@@ -24,6 +24,6 @@ export const routes = [
   },
   {
     path: '*',
-    redirect: '/',
+    redirect: '/'
   }
-];
+]

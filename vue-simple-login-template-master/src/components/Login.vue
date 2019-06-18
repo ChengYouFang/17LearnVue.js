@@ -13,23 +13,23 @@
   </div>
 </template>
 <script>
-  export default {
-    data () {
-      return {
-        userName: '',
-        password: '',
+export default {
+  data() {
+    return {
+      userName: "",
+      password: ""
+    };
+  },
+  methods: {
+    login() {
+      //write login authencation logic here!
+      if (this.userName == "abcd" && this.password == "1234") {
+        localStorage.setItem("token", "ImLogin");
+        this.$router.push("/");
+      } else {
+        alert("login failed");
       }
-    },
-    methods: {
-      login(){
-        //write login authencation logic here!
-        if( this.userName == 'abcd' && this.password == '1234' ){
-          localStorage.setItem('token', 'ImLogin')
-          this.$router.push('/');
-        } else{
-          alert('login failed')
-        }
-      }
-    } 
+    }
   }
+};
 </script>

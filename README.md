@@ -1,4 +1,4 @@
-# Vue
+# Vue 簡單入門
 ![](https://i.imgur.com/YNC9xye.png)
 > 輕量化的框架
 MVVM 架構
@@ -8,14 +8,6 @@ Two-Way-Binding 雙向綁定
 學習 vue 之外順便，學習 spring boot ....，後期可能會搭配
 [uni app](https://uniapp.dcloud.io/)，開發跨平台app ，將整理成 各個example....
 
-# 近期趨勢
-[![](https://i.imgur.com/xp7FpYh.png)](https://ithelp.ithome.com.tw/articles/10184834)
-
-# Vuex
-[![](https://i.imgur.com/5g3D9lW.png)](https://ithelp.ithome.com.tw/articles/10185686)
-
-# 入門程度
-> 簡單
 
 # 範例包含
 json,restful,spring boot,vue.....
@@ -33,4 +25,13 @@ json,restful,spring boot,vue.....
   - [x] 結合右鍵選單 
   - [x] 新增下拉式選單
   - [x] 簡單多重篩選 (P)
+* 簡易login
+  - [x] 基於 vue-router 簡單 login
+  - [ ] 改為 cookie session 驗證機制
+  - [ ] 自訂 axios 攔截模組
+  - [ ] mock.js 數據產生
+  - [ ] 加掛 sll chrome
+  - [ ] vuex example
+  - [ ] ui元件引用
+  - [ ] 多國語系使用範例
 

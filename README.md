@@ -33,5 +33,5 @@ json,restful,spring boot,vue.....
   - [ ] 加掛 sll chrome
   - [ ] vuex example
   - [ ] ui元件引用
-  - [ ] 多國語系應用
+  - [ ] 多國語系使用範例
 

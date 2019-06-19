@@ -18,10 +18,12 @@
   </div>
 </template>
 <script>
+//import { removeToken } from "../api/cookiesex";
 export default {
   methods: {
     logout() {
       localStorage.removeItem("token");
+      //removeToken();
       this.$router.push("/login");
     },
     handleCommand(command) {

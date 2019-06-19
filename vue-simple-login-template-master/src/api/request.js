@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
+import { setcookie } from '../api/cookiesex'
 import 'element-ui/lib/theme-chalk/index.css'
 ///可以夾帶cors herad 來實現跨網域... ?
 axios.interceptors.request.use(
@@ -18,6 +19,7 @@ axios.interceptors.response.use(
 
       return
     }
+
     //if (data.data != '') Message.error({ message: data.data, type: 'success' })
     return data
   },

@@ -13,6 +13,7 @@
   </div>
 </template>
 <script>
+//import { setToken } from "..cookiesex";
 export default {
   data() {
     return {
@@ -29,7 +30,9 @@ export default {
         pwd: this.password
       }).then(resp => {
         if (resp.data.code == "20000") {
+          // setToken("ImLogin");
           localStorage.setItem("token", "ImLogin");
+          //  getToken
           this.$router.push("/");
         } else
           this.$message.error({

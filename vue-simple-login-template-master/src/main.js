@@ -14,7 +14,7 @@ import { getRequest } from './api/request'
 import { postRequest } from './api/request'
 import { deleteRequest } from './api/request'
 import { putRequest } from './api/request'
-//import { getToken} from './api/cookiesex'
+import { getToken } from './api/cookiesex'
 
 Vue.config.productionTip = false
 ///////////router
@@ -23,21 +23,21 @@ const router = new VueRouter({
   mode: 'history'
 })
 router.beforeEach((to, from, next) => {
-  const isLogin = localStorage.getItem('token') == 'ImLogin'
-  if (isLogin) {
-    next()
-  } else {
-    if (to.path !== '/login') next('/login')
-    else next()
-  }
-
-  // const isLogin = getToken()== 'ImLogin'
+  // const isLogin = localStorage.getItem('token') == 'ImLogin'
   // if (isLogin) {
   //   next()
   // } else {
   //   if (to.path !== '/login') next('/login')
   //   else next()
   // }
+
+  const isLogin = getToken() == 'ImLogin'
+  if (isLogin) {
+    next()
+  } else {
+    if (to.path !== '/login') next('/login')
+    else next()
+  }
 })
 Vue.use(VueRouter)
 

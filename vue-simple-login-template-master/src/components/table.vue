@@ -1,4 +1,5 @@
 // :data="filtermethod(list,search)"
+//:data="filteredData"
 <template>
   <div class="app-container">
     <el-table
@@ -128,16 +129,13 @@
     </el-dialog>
 
     <vue-context ref="menu">
-      <template slot-scope="child" v-if="child.data" style="width:200px ; height: 200px">
+      <template slot-scope="child" v-if="child.data">
         <li>
           <a class="textder" href="#" @click.prevent="alertName">
-            Alert name : {{currentRow.name}}
-            <br>
-            Status : {{ currentRow.status }}
-            <br>
-            City : {{ currentRow.city }}
-            <br>
-            Title : {{ currentRow.title }}
+            <div class="lay1">Alert name : {{currentRow.name}}</div>
+            <div class="lay1">Status : {{ currentRow.status }}</div>
+            <div class="lay1">City : {{ currentRow.city }}</div>
+            <div class="lay1">Title : {{ currentRow.title }}</div>
           </a>
         </li>
         <li>
@@ -155,7 +153,6 @@
 </template>
 
 <script>
-import { getList } from "@/api/table";
 import { VueContext } from "vue-context";
 
 export default {
@@ -285,10 +282,10 @@ export default {
     fetchData() {
       this.listLoading = true;
 
-      getList({
+      this.getRequest("/httpMethod2", {
         id: this.currentStartIndex.toString()
-      }).then(response => {
-        const items = response.data.items;
+      }).then(resp => {
+        const items = resp.data.data.items;
 
         this.list = items.map(v => {
           this.$set(v, "edit", false); // https://vuejs.org/v2/guide/reactivity.html
@@ -299,6 +296,21 @@ export default {
         this.list = this.list;
         this.filteredData;
       });
+
+      // getList({
+      //   id: this.currentStartIndex.toString()
+      // }).then(response => {
+      //   const items = response.data.items;
+
+      //   this.list = items.map(v => {
+      //     this.$set(v, "edit", false); // https://vuejs.org/v2/guide/reactivity.html
+      //     v.originalTitle = v.title; //  will be used when user click the cancel botton
+      //     return v;
+      //   });
+      //   this.listLoading = false;
+      //   this.list = this.list;
+      //   this.filteredData;
+      // });
       // console.log(this.list);
     },
     alertName() {
@@ -590,8 +602,8 @@ export default {
 }
 .cancel-btn {
   position: absolute;
-  right: 15px;
-  top: 10px;
+  right: 55px;
+  top: 15px;
 }
 .link-type,
 .link-type:focus {
@@ -602,6 +614,11 @@ export default {
 
 
 
+<style scoped>
+.lay1 {
+  width: 400px;
+}
+</style>
 
 <style scoped>
 .el-table__body-wrapper .el-table__row td {

@@ -18,7 +18,7 @@ axios.interceptors.response.use(
 
       return
     }
-    if (data.data != '') Message.error({ message: data.data, type: 'success' })
+    //if (data.data != '') Message.error({ message: data.data, type: 'success' })
     return data
   },
   err => {
@@ -33,7 +33,8 @@ axios.interceptors.response.use(
   }
 )
 
-let base = 'http://localhost:9990'
+//let base = 'http://localhost:9990'
+let base = 'http://60161048.ngrok.io'
 //server 1 let base = 'http://localhost:9990/'
 //server 2 let base = ''
 //server 3 let base = ''
@@ -101,9 +102,11 @@ export const deleteRequest = url => {
     url: `${base}${url}`
   })
 }
-export const getRequest = url => {
+export const getRequest = (url, params) => {
+  console.log(params.id)
   return axios({
     method: 'get',
-    url: `${base}${url}`
+    url: `${base}${url}`,
+    params
   })
 }

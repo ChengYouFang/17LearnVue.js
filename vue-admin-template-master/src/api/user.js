@@ -92,7 +92,7 @@ export function login(data) {
   // }
 
   return request({
-    url: 'http://localhost:9990/httpMethod',
+    url: '/httpMethod',
     method: 'post',
     data: {
       name: data.username,

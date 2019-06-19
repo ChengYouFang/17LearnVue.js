@@ -3,9 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 ///ui插件
-import { Message } from 'element-ui'
+import { Message, Table } from 'element-ui'
+import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-
 import VueRouter from 'vue-router'
 import { routes } from './routes' //路由規則
 import axios from 'axios'
@@ -31,6 +31,8 @@ router.beforeEach((to, from, next) => {
   }
 })
 Vue.use(VueRouter)
+
+Vue.use(ElementUI)
 /////////// 全局引用
 Vue.prototype.getRequest = getRequest
 Vue.prototype.postRequest = postRequest

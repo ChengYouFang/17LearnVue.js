@@ -1,6 +1,6 @@
 import Login from './components/login.vue'
 import Header from './components/header.vue'
-import Home from './components/home.vue'
+import Home from './components/table.vue'
 import UserInfo from './components/userInfo.vue'
 
 export const routes = [

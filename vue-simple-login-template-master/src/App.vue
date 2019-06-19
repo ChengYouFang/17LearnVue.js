@@ -1,6 +1,8 @@
 <template>
   <div id="app">
+    <p>{{$t('message.i1')}}</p>
     <img src="./assets/logo.png">
+
     <router-view name="nav"></router-view>
     <router-view/>
   </div>

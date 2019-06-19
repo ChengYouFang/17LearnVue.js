@@ -9,7 +9,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import VueRouter from 'vue-router'
 import { routes } from './routes' //路由規則
 import axios from 'axios'
-
+import i18n from './assets/i18n/i18n'
 import { getRequest } from './api/request'
 import { postRequest } from './api/request'
 import { deleteRequest } from './api/request'
@@ -45,6 +45,7 @@ Vue.prototype.$message = Message
 new Vue({
   el: '#app',
   router,
+  i18n,
   components: { App },
   template: '<App/>'
 })

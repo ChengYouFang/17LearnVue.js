@@ -7,7 +7,7 @@ import { Message, Table } from 'element-ui'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import VueRouter from 'vue-router'
-import { routes } from './routes' //路由規則
+import { gettest } from './routes' //路由規則
 import axios from 'axios'
 import i18n from './assets/i18n/i18n'
 import { getRequest } from './api/request'
@@ -17,9 +17,10 @@ import { putRequest } from './api/request'
 import { getToken } from './api/cookiesex'
 
 Vue.config.productionTip = false
+const routes2 = gettest()
 ///////////router
 const router = new VueRouter({
-  routes,
+  routes: routes2,
   mode: 'history'
 })
 router.beforeEach((to, from, next) => {
@@ -50,6 +51,9 @@ Vue.prototype.putRequest = putRequest
 Vue.prototype.$message = Message
 ///////////
 
+
+
+///////////
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -27,3 +27,8 @@ export const routes = [
     redirect: '/'
   }
 ]
+
+export function gettest() {
+  console.log(routes)
+  return routes
+}

@@ -27,11 +27,11 @@ json,restful,spring boot,vue.....
   - [x] 簡單多重篩選 (P)
 * 簡易login
   - [x] 基於 vue-router 簡單 login
-  - [ ] 改為 cookie session 驗證機制
+  - [x] 改為 cookie session 驗證機制 spring 後端準備中
   - [x] 自訂 axios 攔截模組
   - [ ] mock.js 數據產生
   - [ ] 加掛 sll chrome
   - [ ] vuex example
   - [x] ui元件引用
-  - [ ] 多國語系使用範例
+  - [x] 多國語系使用範例
 

@@ -35,8 +35,8 @@ axios.interceptors.response.use(
   }
 )
 
-//let base = 'http://localhost:9990'
-let base = 'http://0bfda5c0.ngrok.io'
+let base = 'http://localhost:9990'
+//let base = 'http://0bfda5c0.ngrok.io'
 //server 1 let base = 'http://localhost:9990/'
 //server 2 let base = ''
 //server 3 let base = ''

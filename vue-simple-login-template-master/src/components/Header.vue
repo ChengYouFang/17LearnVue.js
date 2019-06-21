@@ -1,7 +1,8 @@
 <template>
   <div>
-    <router-link to="/">Home</router-link>
-    <router-link to="/userInfo">User Info</router-link>
+    <router-link :to="{name:'home'}">Home</router-link>
+    <router-link :to="{name:'userinfo'}">User Info</router-link>
+    <router-link :to="{name:'test'}">test</router-link>
 
     <a href @click.prevent="logout">Logout</a>
 

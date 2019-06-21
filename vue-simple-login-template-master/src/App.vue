@@ -4,6 +4,7 @@
     <img src="./assets/logo.png">
 
     <router-view name="nav"></router-view>
+
     <router-view/>
   </div>
 </template>

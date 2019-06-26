@@ -20,12 +20,12 @@ json,restful,spring boot,vue.....
 
 # you can learn....
 * 換掉mock.js 套上 spring boot 後端返回數據
-* 客製化table (working)
+* 客製化table (vue-admin-template-master 預計廢除) 
   - [x] 取得後端數據 
   - [x] 結合右鍵選單 
   - [x] 新增下拉式選單
   - [x] 簡單多重篩選 (P)
-* 簡易login
+* 簡易login (vue-simple-login-template-master)
   - [x] 基於 vue-router 簡單 login
   - [x] 改為 cookie session 驗證機制 spring 後端準備中
   - [x] 自訂 axios 攔截模組
@@ -35,3 +35,9 @@ json,restful,spring boot,vue.....
   - [x] ui元件引用
   - [x] 多國語系使用範例
 
+* 新增多入口點 (vuecli3-multiple-master)
+  - [x] 多入口點建置
+  - [x] 配置不同 skin (bootstrap-vue ,element ui ....)
+  - [ ] 預計新增 ssl
+  - [x] 共用組件範例
+  

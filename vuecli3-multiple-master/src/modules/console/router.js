@@ -1,12 +1,31 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
+import Header from './view/header.vue'
+import Home from './view/home.vue'
+import Login from './view/login.vue'
 Vue.use(VueRouter)
 
 const routes = [
-    { path: '/', name: 'login', component: r => { require(['./login/Login'], r) }, meta: { title: 'console 登录' }}
+  {
+    path: '/',
+    components: {
+      default: Home,
+      nav: Header
+    },
+    name: 'home'
+  },
+  {
+    path: '/login',
+    component: Login,
+    name: 'login'
+  },
+  {
+    path: '*',
+    redirect: '/'
+  }
 ]
 
 export default new VueRouter({
-    routes: routes
+  routes: routes,
+  mode: 'history'
 })

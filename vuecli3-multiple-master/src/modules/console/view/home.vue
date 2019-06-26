@@ -2,153 +2,7 @@
 //:data="filteredData"
 <template>
   <div class="app-container">
-    <el-table
-      ref="singleTable"
-      oncontextmenu="return false"
-      v-loading="listLoading"
-      :data="filteredData"
-      element-loading-text="Loading"
-      fit
-      highlight-current-row
-      height="800"
-      @current-change="handleCurrentChange"
-      @cell-mouse-enter="openDetails"
-      @cell-click="tmp"
-      @row-contextmenu="showmenu($row,$event, { name: item, index })"
-      :data-size="list"
-    >
-      <el-table-column type="selection" width="55"></el-table-column>
-      <el-table-column align="center" label="ID" width="95" sortable prop="id">
-        <template slot-scope="scope">{{ scope.row.id }}</template>
-      </el-table-column>
-      <el-table-column label="Name" sortable prop="name">
-        <template slot-scope="scope">
-          <span class="link-type" @click="dialogFormVisible = true">{{ scope.row.name }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="Author" width="110" align="center">
-        <template slot-scope="scope">
-          <span>{{ scope.row.author }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="Pageviews" width="110" align="center">
-        <template slot-scope="scope">{{ scope.row.pageviews }}</template>
-      </el-table-column>
-      <el-table-column class-name="status-col" label="Status" width="110" align="center">
-        <template slot-scope="scope">
-          <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
-        </template>
-      </el-table-column>
-      <el-table-column label="city" width="120">
-        <template scope="scope">
-          <el-select v-model="list[scope.$index].city" placeholder="請選擇">
-            <el-option
-              v-for="item in cities"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            >
-              <span style="float: left">{{ item.label }}</span>
-              <span style="float: right; color: #8492a6; font-size: 13px">{{ item.value }}</span>
-            </el-option>
-          </el-select>
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" prop="created_at" label="Display_time" width="200">
-        <template slot-scope="scope">
-          <i class="el-icon-time"/>
-          <span>{{ scope.row.displaytime }}</span>
-        </template>
-      </el-table-column>
-
-      <el-table-column min-width="300px" label="Title" prop="title">
-        <template slot-scope="{row}">
-          <template v-if="row.edit">
-            <el-input v-model="row.title" class="edit-input" size="small"/>
-            <el-button
-              class="cancel-btn"
-              size="small"
-              icon="el-icon-refresh"
-              type="warning"
-              @click="cancelEdit(row)"
-            >cancel</el-button>
-          </template>
-          <span v-else>{{ row.title }}</span>
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" label="Actions" width="200">
-        <template slot-scope="{row}">
-          <el-button
-            v-if="row.edit"
-            type="success"
-            size="small"
-            icon="el-icon-circle-check-outline"
-            @click="confirmEdit(row)"
-          >Ok</el-button>
-          <el-button
-            v-else
-            type="primary"
-            size="small"
-            icon="el-icon-edit"
-            @click="row.edit=!row.edit"
-          >Edit</el-button>
-        </template>
-        <template slot="header" slot-scope="scope">
-          <el-input v-model="search" size="mini" placeholder="請輸入要搜尋文字"/>
-        </template>
-      </el-table-column>
-    </el-table>
-    <el-dialog
-      title="Edit"
-      :close-on-click-modal="false"
-      :visible.sync="dialogFormVisible"
-      ref="testdialog"
-    >
-      <el-form :model="form">
-        <el-form-item label="搜尋">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="院區">
-          <el-select v-model="form.region" placeholder="請選擇院區">
-            <el-option label="区域一" value="shanghai"></el-option>
-            <el-option label="区域二" value="beijing"></el-option>
-          </el-select>
-        </el-form-item>
-        <el-table :data="gridData">
-          <el-table-column property="date" label="日期" width="150"></el-table-column>
-          <el-table-column property="name" label="姓名" width="200"></el-table-column>
-          <el-table-column property="address" label="地址"></el-table-column>
-        </el-table>
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="tmp2">确 定</el-button>
-      </div>
-    </el-dialog>
-
-    <vue-context ref="menu">
-      <template slot-scope="child" v-if="child.data">
-        <li>
-          <a class="textder" href="#" @click.prevent="alertName">
-            <div class="lay1">Alert name : {{currentRow.name}}</div>
-            <div class="lay1">Status : {{ currentRow.status }}</div>
-            <div class="lay1">City : {{ currentRow.city }}</div>
-            <div class="lay1">Title : {{ currentRow.title }}</div>
-          </a>
-        </li>
-        <li>
-          <a class="textder" href="#" @click.prevent="remove( list)">Delete</a>
-        </li>
-      </template>
-      <span>{{ result1 }}</span>
-    </vue-context>
-    <div style="margin-top: 20px ">
-      <el-button @click="reload">reload</el-button>
-      <el-button @click="toggleSelection([list[1], list[2]])">切换第二、第三行的选中状态</el-button>
-      <el-button @click="toggleSelection()">取消选择</el-button>
-    </div>
+    <b-table striped hover :items="items"></b-table>
   </div>
 </template>
 
@@ -257,17 +111,23 @@ export default {
         desc: ""
       },
       currentStartIndex: 0,
-      currentEndIndex: 20
+      currentEndIndex: 20,
+      items: [
+        { age: 40, first_name: "Dickerson", last_name: "Macdonald" },
+        { age: 21, first_name: "Larsen", last_name: "Shaw" },
+        { age: 89, first_name: "Geneva", last_name: "Wilson" },
+        { age: 38, first_name: "Jami", last_name: "Carney" }
+      ]
     };
   },
   created() {
     this.fetchData();
-      document.onkeyup=function(e){
-    var key=window.event.keyCode;
-    if(key==13){
-      alert('Enter up')
-    }
-  }
+    document.onkeyup = function(e) {
+      var key = window.event.keyCode;
+      if (key == 13) {
+        alert("Enter up");
+      }
+    };
   },
   computed: {
     filteredData() {

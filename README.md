@@ -1,4 +1,4 @@
-# Vue 簡單入門
+# 看著sameple code 學 Vue 
 ![](https://i.imgur.com/YNC9xye.png)
 > 輕量化的框架
 MVVM 架構

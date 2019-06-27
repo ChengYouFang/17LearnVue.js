@@ -26,5 +26,6 @@ module.exports = {
     //         chunks: ['client']
     //     }
     // // 只有entry属性时，直接用字符串表示模块入口
-  }
+  },
+  productionSourceMap: false
 }

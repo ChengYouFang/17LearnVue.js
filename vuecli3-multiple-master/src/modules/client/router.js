@@ -1,12 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from './view/login.vue'
-import Header from './view/header.vue'
-import Home from './view/home.vue'
-import UserInfo from './view/userinfo.vue'
-import test from './view/test.vue'
-import test2 from './view//h1.vue'
-import test3 from './view/h2.vue'
+// import Login from './view/login.vue'
+// import Header from './view/header.vue'
+// import Home from './view/home.vue'
+// import UserInfo from './view/userinfo.vue'
+// import test from './view/test.vue'
+// import test2 from './view//h1.vue'
+// import test3 from './view/h2.vue'
+const Login = () => import(/* webpackChunkName: "group-foo8" */ './view/login.vue')
+const Header = () => import(/* webpackChunkName: "group-foo7" */ './view/header.vue')
+const Home = () => import(/* webpackChunkName: "group-foo6" */ './view/home.vue')
+const UserInfo = () => import(/* webpackChunkName: "group-foo5" */ './view/userinfo.vue')
+const test = () => import(/* webpackChunkName: "group-foo4" */ './view/test.vue')
+const test2 = () => import(/* webpackChunkName: "group-foo3" */ './view/h1.vue')
+const test3 = () => import(/* webpackChunkName: "group-foo2" */ './view/h2.vue')
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -22,6 +30,10 @@ const routes = [
       nav: Header
     },
     name: 'home'
+    // ,
+    // meta:{
+    //   title: '我是首頁'
+    // }
   },
   {
     path: '/test',
@@ -56,7 +68,6 @@ const routes = [
     },
     name: 'h2'
   },
-  ,
   {
     path: '/userInfo',
     components: {

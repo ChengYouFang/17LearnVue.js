@@ -9,7 +9,8 @@
 
     <p>{{$t('message.i1')}}</p>
     <router-view name="nav"></router-view>
-    <router-view></router-view>
+    <router-view  v-wechat-title="$t('title.test')" ></router-view>
+
   </div>
 </template>
 

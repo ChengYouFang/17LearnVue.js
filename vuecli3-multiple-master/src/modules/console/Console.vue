@@ -10,6 +10,7 @@
     <p>{{$t('message.i1')}}</p>
     <router-view name="nav"></router-view>
     <router-view></router-view>
+    <router-view name="test"></router-view>
   </div>
 </template>
 

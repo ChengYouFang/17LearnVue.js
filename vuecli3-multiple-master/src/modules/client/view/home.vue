@@ -608,7 +608,7 @@ export default {
 }
 .cancel-btn {
   position: absolute;
-  right: 55px;
+  right: 100px;
   top: 15px;
 }
 .link-type,

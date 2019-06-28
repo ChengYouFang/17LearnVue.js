@@ -3,7 +3,12 @@ module.exports = {
     console: 'src/modules/console/console.js',
 
     // 只有entry属性时，直接用字符串表示模块入口
-    client: 'src/modules/client/client.js'
+    client: {
+      entry: 'src/modules/client/client.js',
+      title: 'client page',
+    },
+    index : 'src/main.js'
+
 
     //     // 只有entry属性时，直接用字符串表示模块入口
     //     client: 'src/modules/client/client.js'
@@ -28,4 +33,6 @@ module.exports = {
     // // 只有entry属性时，直接用字符串表示模块入口
   },
   productionSourceMap: false
+
+
 }

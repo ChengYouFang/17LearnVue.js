@@ -34,6 +34,7 @@ router.beforeEach((to, from, next) => {
   // }
 
   const isLogin = getToken() == 'ImLogin'
+  console.log(isLogin)
   if (isLogin) {
     next()
   } else {

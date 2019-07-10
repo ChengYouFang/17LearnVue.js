@@ -30,7 +30,15 @@ export default {
   methods: {
     logout() {
       //localStorage.removeItem("token");
-      removeToken();
+      //removeToken();
+
+        this.getRequest("/removeSession" ).then(resp => {
+          //const items = resp.data.data.items;
+          this.$message({
+            message: "你已經登出" ,
+            type: "success"
+          });
+        });
       this.$router.push("/login");
     },
     handleCommand(command) {

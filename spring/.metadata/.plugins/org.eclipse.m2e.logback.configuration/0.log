@@ -5092,3 +5092,106 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact antlr:antlr:j
 2019-07-10 10:56:56,591 [Worker-77: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2019-07-10 10:56:56,593 [Worker-77: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2019-07-10 10:56:56,593 [Worker-77: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\x213212\Desktop\17LearnVue.js\spring\demo\src\test\resources
+2019-07-10 11:04:02,134 [Worker-92: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 11:04:02,136 [Worker-92: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 11:04:02,140 [Worker-92: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 11:04:02,142 [Worker-92: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 11:04:02,142 [Worker-92: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\x213212\Desktop\17LearnVue.js\spring\demo\src\test\resources
+2019-07-10 11:05:22,402 [Worker-93: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 11:05:22,404 [Worker-93: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 11:05:22,409 [Worker-93: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 11:05:22,411 [Worker-93: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 11:05:22,411 [Worker-93: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\x213212\Desktop\17LearnVue.js\spring\demo\src\test\resources
+2019-07-10 11:25:36,747 [Worker-92: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 11:25:36,748 [Worker-92: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 11:25:36,753 [Worker-92: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 11:25:36,755 [Worker-92: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 11:25:36,756 [Worker-92: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\x213212\Desktop\17LearnVue.js\spring\demo\src\test\resources
+2019-07-10 11:30:04,436 [Worker-104: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 11:30:04,462 [Worker-104: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 11:30:04,466 [Worker-104: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-07-10 11:30:04,467 [Worker-104: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 11:30:04,467 [Worker-104: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\x213212\Desktop\17LearnVue.js\spring\demo\src\test\resources
+2019-07-10 11:46:03,861 [Worker-107: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 11:46:03,863 [Worker-107: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 11:46:03,866 [Worker-107: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 11:46:03,868 [Worker-107: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 11:46:03,868 [Worker-107: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\x213212\Desktop\17LearnVue.js\spring\demo\src\test\resources
+2019-07-10 13:41:24,950 [Worker-111: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 13:41:24,952 [Worker-111: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 13:41:24,958 [Worker-111: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 13:41:24,961 [Worker-111: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 13:41:24,962 [Worker-111: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\x213212\Desktop\17LearnVue.js\spring\demo\src\test\resources
+2019-07-10 13:42:06,376 [Worker-140: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 13:42:06,377 [Worker-140: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 13:42:06,381 [Worker-140: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 13:42:06,383 [Worker-140: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 13:42:06,383 [Worker-140: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\x213212\Desktop\17LearnVue.js\spring\demo\src\test\resources
+2019-07-10 14:05:45,239 [Worker-156: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 14:05:45,241 [Worker-156: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 14:05:45,245 [Worker-156: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 14:05:45,247 [Worker-156: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 14:05:45,247 [Worker-156: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\x213212\Desktop\17LearnVue.js\spring\demo\src\test\resources
+2019-07-10 15:28:32,897 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:demo:0.0.1-SNAPSHOT @ C:\Users\x213212\Desktop\17LearnVue.js\spring\demo\pom.xml.
+2019-07-10 15:28:35,859 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/data/spring-data-redis/2.0.3.RELEASE/spring-data-redis-2.0.3.RELEASE.pom
+2019-07-10 15:28:36,038 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/data/spring-data-redis/2.0.3.RELEASE/spring-data-redis-2.0.3.RELEASE.pom
+2019-07-10 15:28:36,216 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/data/build/spring-data-parent/2.0.3.RELEASE/spring-data-parent-2.0.3.RELEASE.pom
+2019-07-10 15:28:36,555 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/data/build/spring-data-parent/2.0.3.RELEASE/spring-data-parent-2.0.3.RELEASE.pom
+2019-07-10 15:28:36,730 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/data/build/spring-data-build/2.0.3.RELEASE/spring-data-build-2.0.3.RELEASE.pom
+2019-07-10 15:28:36,901 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/data/build/spring-data-build/2.0.3.RELEASE/spring-data-build-2.0.3.RELEASE.pom
+2019-07-10 15:28:37,064 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/projectreactor/reactor-bom/Bismuth-SR5/reactor-bom-Bismuth-SR5.pom
+2019-07-10 15:28:37,222 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/projectreactor/reactor-bom/Bismuth-SR5/reactor-bom-Bismuth-SR5.pom
+2019-07-10 15:28:37,385 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-framework-bom/5.0.3.RELEASE/spring-framework-bom-5.0.3.RELEASE.pom
+2019-07-10 15:28:37,553 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-framework-bom/5.0.3.RELEASE/spring-framework-bom-5.0.3.RELEASE.pom
+2019-07-10 15:28:37,730 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/redis/clients/jedis/2.9.0/jedis-2.9.0.pom
+2019-07-10 15:28:37,893 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/redis/clients/jedis/2.9.0/jedis-2.9.0.pom
+2019-07-10 15:28:38,054 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/commons/commons-pool2/2.5.0/commons-pool2-2.5.0.pom
+2019-07-10 15:28:38,239 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/commons/commons-pool2/2.5.0/commons-pool2-2.5.0.pom
+2019-07-10 15:28:38,604 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/data/spring-data-redis/2.0.3.RELEASE/spring-data-redis-2.0.3.RELEASE.jar
+2019-07-10 15:28:39,705 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/data/spring-data-redis/2.0.3.RELEASE/spring-data-redis-2.0.3.RELEASE.jar
+2019-07-10 15:28:39,854 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/redis/clients/jedis/2.9.0/jedis-2.9.0.jar
+2019-07-10 15:28:40,069 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/redis/clients/jedis/2.9.0/jedis-2.9.0.jar
+2019-07-10 15:28:40,218 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/commons/commons-pool2/2.5.0/commons-pool2-2.5.0.jar
+2019-07-10 15:28:40,396 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/commons/commons-pool2/2.5.0/commons-pool2-2.5.0.jar
+2019-07-10 15:28:42,588 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 15:28:42,591 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 15:28:42,613 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-07-10 15:28:42,616 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 15:28:42,616 [Worker-183: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\x213212\Desktop\17LearnVue.js\spring\demo\src\test\resources
+2019-07-10 15:28:46,180 [Worker-188: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/data/spring-data-redis/2.0.3.RELEASE/spring-data-redis-2.0.3.RELEASE-sources.jar
+2019-07-10 15:28:47,616 [Worker-188: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/data/spring-data-redis/2.0.3.RELEASE/spring-data-redis-2.0.3.RELEASE-sources.jar
+2019-07-10 15:28:48,106 [Worker-188: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.springframework.data:spring-data-redis:2.0.3.RELEASE
+2019-07-10 15:28:48,283 [Worker-188: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar
+2019-07-10 15:28:48,537 [Worker-188: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar
+2019-07-10 15:28:49,415 [Worker-188: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for redis.clients:jedis:2.9.0
+2019-07-10 15:28:49,586 [Worker-188: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/commons/commons-pool2/2.5.0/commons-pool2-2.5.0-sources.jar
+2019-07-10 15:28:49,818 [Worker-188: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/commons/commons-pool2/2.5.0/commons-pool2-2.5.0-sources.jar
+2019-07-10 15:28:50,359 [Worker-188: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.commons:commons-pool2:2.5.0
+2019-07-10 15:28:51,902 [Worker-188: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.springframework.data:spring-data-redis:2.0.3.RELEASE
+2019-07-10 15:28:51,911 [Worker-188: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for redis.clients:jedis:2.9.0
+2019-07-10 15:28:51,916 [Worker-188: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.commons:commons-pool2:2.5.0
+2019-07-10 16:49:55,910 [Worker-204: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 16:49:55,912 [Worker-204: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 16:49:55,926 [Worker-204: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 16:49:56,012 [Worker-204: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 16:49:56,012 [Worker-204: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\x213212\Desktop\17LearnVue.js\spring\demo\src\test\resources
+2019-07-10 16:50:28,081 [Worker-204: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 16:50:28,082 [Worker-204: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 16:50:28,086 [Worker-204: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 16:50:28,088 [Worker-204: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 16:50:28,088 [Worker-204: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\x213212\Desktop\17LearnVue.js\spring\demo\src\test\resources
+2019-07-10 16:50:58,664 [Worker-196: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 16:50:58,665 [Worker-196: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 16:50:58,669 [Worker-196: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 16:50:58,671 [Worker-196: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 16:50:58,671 [Worker-196: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\x213212\Desktop\17LearnVue.js\spring\demo\src\test\resources
+2019-07-10 16:55:57,401 [Worker-208: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 16:55:57,402 [Worker-208: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 16:55:57,406 [Worker-208: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 16:55:57,408 [Worker-208: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 16:55:57,408 [Worker-208: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\x213212\Desktop\17LearnVue.js\spring\demo\src\test\resources
+2019-07-10 16:56:35,046 [Worker-209: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 16:56:35,047 [Worker-209: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 16:56:35,051 [Worker-209: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-07-10 16:56:35,053 [Worker-209: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-07-10 16:56:35,053 [Worker-209: Launching demo - DemoApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\x213212\Desktop\17LearnVue.js\spring\demo\src\test\resources

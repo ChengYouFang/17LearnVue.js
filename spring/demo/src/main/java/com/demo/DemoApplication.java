@@ -11,14 +11,17 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+import java.util.Iterator;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -61,6 +64,7 @@ public class DemoApplication {
 	public Integer currentindex;
 	public Integer currentindexend;
 	List listest= new List();
+	List listest2= new List();
 
 ListData item = new ListData ();
 
@@ -140,6 +144,10 @@ ListData item = new ListData ();
 		            .allowCredentials(true)
 		            .allowedMethods("GET")
 		          .allowedOrigins("*");//允许域名访问，如果*，代表所有域名
+		            registry.addMapping("/removeSession")
+		            .allowCredentials(true)
+		            .allowedMethods("GET")
+		          .allowedOrigins("*");//允许域名访问，如果*，代表所有域名
 			            }
 	        };
 	    }
@@ -152,11 +160,15 @@ ListData item = new ListData ();
 	public Login  httpMethod(@RequestBody Map<String, Object> params,HttpServletRequest request) throws JsonProcessingException{
 	System.out.println("sent name is "+  params.get("name").toString());
 	System.out.println("sent pwd is "+  params.get("pwd").toString());
-	request.getSession().setAttribute("name",  params.get("name").toString());
+
 	if( params.get("name").equals("admin")   &&  params.get("pwd").equals("111111" ) ) {
 		Login memberAccount = new Login();
-	    
+//	    if(request.getSession().getAttribute("name") == null) {
 		memberAccount.setCode(20000);
+		request.getSession().setAttribute("name",  params.get("name").toString());
+//		}
+//	    else
+//	    memberAccount.setCode(500);
 		Token test = new Token();
 		memberAccount.setData(test);
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -218,10 +230,32 @@ ListData item = new ListData ();
  
     @RequestMapping(value = "/getSession", method = RequestMethod.GET)
 	@CrossOrigin
-    public void getInterestPro(HttpServletRequest request, HttpServletResponse response) {
+    public List getInterestPro(HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException{
     	System.out.println(request.getSession().getId().toString());
-    	System.out.print(request.getSession().getAttribute("name"));
+    	System.out.println(request.getSession().getAttribute("name"));
+    	ObjectMapper objectMapper = new ObjectMapper();
+    	
+    	if( request.getSession().getAttribute("name") != null)
+    		listest2.setCode(200);
+    	else
+    		listest2.setCode(404);
+    	
+    	//select 所有 redis 
+    	Set<byte[]> keys = jedisConnectionFactory().getConnection().keys("*sessions:expires*".getBytes());
 
+    	Iterator<byte[]> it = keys.iterator();
+
+    	while(it.hasNext()){
+
+    	    byte[] data = (byte[])it.next();
+
+    	    System.out.println(new String(data, 0, data.length));
+    	}
+    	
+    	
+    	String userJsonStr = objectMapper.writeValueAsString(listest2);
+    	//System.out.print(userJsonStr);
+    	return listest2;
     }
  
     @RequestMapping(value = "/removeSession", method = RequestMethod.GET)
@@ -230,6 +264,25 @@ ListData item = new ListData ();
         request.getSession().removeAttribute("name");
 
     }
+    
+    @Bean
+    JedisConnectionFactory jedisConnectionFactory() {
+        JedisConnectionFactory jedisConFactory
+        = new JedisConnectionFactory();
+      jedisConFactory.setHostName("localhost");
+      jedisConFactory.setPort(6379);
+      return jedisConFactory;
+    }
+     
+    @Bean
+    public RedisTemplate<String, Object> redisTemplate() {
+        RedisTemplate<String, Object> template = new RedisTemplate<>();
+        template.setConnectionFactory(jedisConnectionFactory());
+        return template;
+    }
+    
+    
+
  
 //	@CrossOrigin
 //	@RequestMapping(value = "/httpMethod")

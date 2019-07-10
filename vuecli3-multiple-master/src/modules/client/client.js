@@ -36,18 +36,26 @@ router.beforeEach((to, from, next) => {
 
 
   const isLogin = getToken() == 'ImLogin'
-  if (to.path !== '/login'){
+  var isLoginsession ="";
+  // if (from.path !== '/' ){
+  // getRequest("/getSession" ).then(resp => {
+  //   //const items = resp.data.data.items;
+  //   isLoginsession = resp.data.code ;
+  // });
+  // }
   getRequest("/getSession" ).then(resp => {
     //const items = resp.data.data.items;
-    console.log(resp);
-  });}
-  if (isLogin) {
+    isLoginsession = resp.data.code ;
+    console.log(isLoginsession)
+    if (isLoginsession == "200") {
+      next()
+    } else {
+      if (to.path !== '/login') next('/login')
+      else next()
+    }
+  });
 
-    next()
-  } else {
-    if (to.path !== '/login') next('/login')
-    else next()
-  }
+
 })
 Vue.use(ElementUI)
 new Vue({

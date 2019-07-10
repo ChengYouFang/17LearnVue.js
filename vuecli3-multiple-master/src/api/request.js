@@ -22,7 +22,13 @@ axios.interceptors.response.use(
 
       return
     }
-
+    /// 供spring boot 測試用途
+    // console.log("test");
+    // if(data.config.url == "http://localhost:9990/getSession"){
+    // if(data.data.code ==200)
+    //   Message.error({ message: '權限驗證成功', type: 'success' });
+    // else
+    //   Message.error({ message: '權限已經失效', type: 'error' });}
     //if (data.data != '') Message.error({ message: data.data, type: 'success' })
     return data
   },
@@ -38,7 +44,7 @@ axios.interceptors.response.use(
   }
 )
 
-let base = 'http://localhost:9990'
+let base = 'http://localhost:8084'
 //let base = 'http://0bfda5c0.ngrok.io'
 //server 1 let base = 'http://localhost:9990/'
 //server 2 let base = ''

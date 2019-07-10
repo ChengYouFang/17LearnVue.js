@@ -32,11 +32,19 @@ export default {
         pwd: this.password
       }).then(resp => {
         if (resp.data.code == "20000") {
-          setToken("ImLogin");
+          //setToken("ImLogin");
           //localStorage.setItem("token", "ImLogin");
           //  getToken
-          this.$router.push("/");
-        } else
+
+          this.$router.push("/");}
+        // }else  if (resp.data.code == "500")
+        // {
+        //   this.$message.error({
+        //     message: "已經有人從其他位置登入，請聯絡管理員。",
+        //     type: "success"
+        //   });
+        // }
+          else
           this.$message.error({
             message: "errrrrrrrrrrrrrrrrrrrrrror",
             type: "success"

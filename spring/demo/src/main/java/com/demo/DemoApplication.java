@@ -13,12 +13,13 @@ import java.util.Map;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,7 +52,7 @@ import com.model.Token;
 @ComponentScan(basePackages = {"com.demo.controller"}) 
 
 @Controller
-
+@EnableRedisHttpSession//开启spring session支持
 @RestController
 @RequestMapping("/")
 @EnableAutoConfiguration
@@ -123,12 +124,23 @@ ListData item = new ListData ();
 	            @Override
 	            public void addCorsMappings(CorsRegistry registry) {
 	                registry.addMapping("/httpMethod/**")
-	                        .allowedOrigins("*");//允许域名访问，如果*，代表所有域名
+	                .allowCredentials(true)
+	                 .allowedOrigins("*");//允许域名访问，如果*，代表所有域名
 	                //.allowedOrigins("http://localhost:9527");//允许域名访问，如果*，代表所有域名
 	                registry.addMapping("/httpMethod2**")
 	                .allowedMethods("GET")
+	                .allowCredentials(true)
+                    .allowedOrigins("http://localhost:8080");//允许域名访问，如果*，代表所有域名
+	      
+	                registry.addMapping("/setSession")
+	                .allowCredentials(true)
                     .allowedOrigins("*");//允许域名访问，如果*，代表所有域名
-	            }
+		            //.allowedOrigins("http://localhost:9527");//允许域名访问，如果*，代表所有域名
+		            registry.addMapping("/getSession")
+		            .allowCredentials(true)
+		            .allowedMethods("GET")
+		          .allowedOrigins("*");//允许域名访问，如果*，代表所有域名
+			            }
 	        };
 	    }
 
@@ -137,9 +149,10 @@ ListData item = new ListData ();
 	@CrossOrigin
 	@PostMapping(value = "/httpMethod", produces = "application/json")
 	@ResponseBody
-	public Login  httpMethod(@RequestBody Map<String, Object> params) throws JsonProcessingException{
+	public Login  httpMethod(@RequestBody Map<String, Object> params,HttpServletRequest request) throws JsonProcessingException{
 	System.out.println("sent name is "+  params.get("name").toString());
 	System.out.println("sent pwd is "+  params.get("pwd").toString());
+	request.getSession().setAttribute("name",  params.get("name").toString());
 	if( params.get("name").equals("admin")   &&  params.get("pwd").equals("111111" ) ) {
 		Login memberAccount = new Login();
 	    
@@ -194,7 +207,30 @@ ListData item = new ListData ();
 	//System.out.print(userJsonStr);
 	return listest;
 	}
-	
+    @RequestMapping(value = "/setSession", method = RequestMethod.GET)
+	@CrossOrigin
+    public void setSession(HttpServletRequest request, HttpServletResponse response) {
+    	System.out.println(request.getSession().getId().toString());
+    	request.getSession().setAttribute("name", "test");
+   //     request.getSession().setAttribute("name2", "tom2");
+     
+    }
+ 
+    @RequestMapping(value = "/getSession", method = RequestMethod.GET)
+	@CrossOrigin
+    public void getInterestPro(HttpServletRequest request, HttpServletResponse response) {
+    	System.out.println(request.getSession().getId().toString());
+    	System.out.print(request.getSession().getAttribute("name"));
+
+    }
+ 
+    @RequestMapping(value = "/removeSession", method = RequestMethod.GET)
+	@CrossOrigin
+    public void removeSession(HttpServletRequest request, HttpServletResponse response) {
+        request.getSession().removeAttribute("name");
+
+    }
+ 
 //	@CrossOrigin
 //	@RequestMapping(value = "/httpMethod")
 //	@ResponseBody

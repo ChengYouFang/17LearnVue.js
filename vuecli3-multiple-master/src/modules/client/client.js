@@ -33,9 +33,16 @@ router.beforeEach((to, from, next) => {
   //   else next()
   // }
 
+
+
   const isLogin = getToken() == 'ImLogin'
-  console.log(isLogin)
+  if (to.path !== '/login'){
+  getRequest("/getSession" ).then(resp => {
+    //const items = resp.data.data.items;
+    console.log(resp);
+  });}
   if (isLogin) {
+
     next()
   } else {
     if (to.path !== '/login') next('/login')

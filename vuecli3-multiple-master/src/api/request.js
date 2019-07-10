@@ -2,6 +2,9 @@ import axios from 'axios'
 import { Message } from 'element-ui'
 import { setcookie } from '../api/cookiesex'
 import 'element-ui/lib/theme-chalk/index.css'
+
+
+axios.defaults.withCredentials=true;//让ajax携带cookie
 ///可以夾帶cors herad 來實現跨網域... ?
 axios.interceptors.request.use(
   config => {
@@ -105,7 +108,7 @@ export const deleteRequest = url => {
   })
 }
 export const getRequest = (url, params) => {
-  console.log(params.id)
+ // console.log(params.id)
   return axios({
     method: 'get',
     url: `${base}${url}`,

@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Item"/>
+		<item key="selection" value="plugin"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="plugin"/>
+			<item value="maven-surefire-plugin"/>
+			<item value="@SpringBootConfiguration,"/>
+			<item value="a @Sp"/>
+			<item value="a @SpringBootCon"/>
+			<item value="a @SpringBootConfigur"/>
+			<item value="a @SpringBootConfiguration"/>
+			<item value="a @SpringBootConfiguration,"/>
+			<item value="hibernate"/>
 			<item value="item"/>
 			<item value="httpMethod2"/>
 			<item value="formLabelWidth"/>
 			<item value="RELEASE"/>
 			<item value="Token"/>
 			<item value="Filter"/>
-			<item value="jar"/>
-			<item value="org.springframework.boot"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="894"/>
+		<item key="DIALOG_X_ORIGIN" value="801"/>
 		<item key="DIALOG_Y_ORIGIN" value="366"/>
 		<item key="DIALOG_WIDTH" value="296"/>
 		<item key="DIALOG_HEIGHT" value="391"/>

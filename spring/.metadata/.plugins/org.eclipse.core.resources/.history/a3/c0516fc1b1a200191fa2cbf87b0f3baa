@@ -1,0 +1,58 @@
+package com.demo.controller;
+
+
+ 
+import java.io.IOException;
+ 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+ 
+@Controller
+@RequestMapping(value = "/")
+public class SpringSessionController {
+ 
+
+	  @Bean
+	    public WebMvcConfigurer corsConfigurer() {
+	        return new WebMvcConfigurer() {
+	            @Override
+	            public void addCorsMappings(CorsRegistry registry) {
+	                registry.addMapping("/httpMethod/**")
+	                        .allowedOrigins("*");//允许域名访问，如果*，代表所有域名
+	                //.allowedOrigins("http://localhost:9527");//允许域名访问，如果*，代表所有域名
+	                registry.addMapping("/httpMethod2**")
+	                .allowedMethods("GET")
+                  .allowedOrigins("*");//允许域名访问，如果*，代表所有域名
+	            }
+	        };
+	    }
+
+    @RequestMapping(value = "/setSession", method = RequestMethod.GET)
+    public void setSession(HttpServletRequest request, HttpServletResponse response) {
+    	System.out.println(request.getSession().getId().toString());
+   //     request.getSession().setAttribute("name", "tom");
+   //     request.getSession().setAttribute("name2", "tom2");
+     
+    }
+ 
+    @RequestMapping(value = "/getSession", method = RequestMethod.GET)
+    public void getInterestPro(HttpServletRequest request, HttpServletResponse response) {
+    	System.out.println(request.getSession().getId().toString());
+    	//System.out.print(request.getSession().getAttribute("name").);
+    }
+ 
+    @RequestMapping(value = "/removeSession", method = RequestMethod.GET)
+    public void removeSession(HttpServletRequest request, HttpServletResponse response) {
+        request.getSession().removeAttribute("name");
+
+    }
+ 
+}

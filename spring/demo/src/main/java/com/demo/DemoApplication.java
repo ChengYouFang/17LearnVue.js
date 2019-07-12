@@ -59,8 +59,9 @@ import com.model.Token;
 @RestController
 @RequestMapping("/")
 @EnableAutoConfiguration
-@CrossOrigin(origins = "http://172.16.7.21:9527", maxAge = 3600)
+@CrossOrigin(origins = "https://localhost:443", maxAge = 3600)
 public class DemoApplication {
+	public JedisConnectionFactory jedisConFactory;
 	public Integer currentindex;
 	public Integer currentindexend;
 	List listest= new List();
@@ -129,25 +130,25 @@ ListData item = new ListData ();
 	            public void addCorsMappings(CorsRegistry registry) {
 	                registry.addMapping("/httpMethod/**")
 	                .allowCredentials(true)
-	                 .allowedOrigins("*");//允许域名访问，如果*，代表所有域名
+	                 .allowedOrigins("https://localhost");//允许域名访问，如果*，代表所有域名
 	                //.allowedOrigins("http://localhost:9527");//允许域名访问，如果*，代表所有域名
 	                registry.addMapping("/httpMethod2**")
 	                .allowedMethods("GET")
 	                .allowCredentials(true)
-                    .allowedOrigins("http://localhost:8080");//允许域名访问，如果*，代表所有域名
+                    .allowedOrigins("https://localhost");//允许域名访问，如果*，代表所有域名
 	      
 	                registry.addMapping("/setSession")
 	                .allowCredentials(true)
-                    .allowedOrigins("*");//允许域名访问，如果*，代表所有域名
+                    .allowedOrigins("https://localhost");//允许域名访问，如果*，代表所有域名
 		            //.allowedOrigins("http://localhost:9527");//允许域名访问，如果*，代表所有域名
 		            registry.addMapping("/getSession")
 		            .allowCredentials(true)
 		            .allowedMethods("GET")
-		          .allowedOrigins("*");//允许域名访问，如果*，代表所有域名
+		          .allowedOrigins("https://localhost");//允许域名访问，如果*，代表所有域名
 		            registry.addMapping("/removeSession")
 		            .allowCredentials(true)
 		            .allowedMethods("GET")
-		          .allowedOrigins("*");//允许域名访问，如果*，代表所有域名
+		          .allowedOrigins("https://localhost");//允许域名访问，如果*，代表所有域名
 			            }
 	        };
 	    }
@@ -240,18 +241,24 @@ ListData item = new ListData ();
     	else
     		listest2.setCode(404);
     	
-    	//select 所有 redis 
-    	Set<byte[]> keys = jedisConnectionFactory().getConnection().keys("*sessions:expires*".getBytes());
+    	 long time = System.currentTimeMillis();
+    	 System.out.println(time);
+    	if(jedisConFactory == null)
+    	{
+        	//select 所有 redis 
+        	Set<byte[]> keys = jedisConFactory.getConnection().keys("*sessions:expires*".getBytes());
 
-    	Iterator<byte[]> it = keys.iterator();
+        	Iterator<byte[]> it = keys.iterator();
 
-    	while(it.hasNext()){
+        	while(it.hasNext()){
 
-    	    byte[] data = (byte[])it.next();
+        	    byte[] data = (byte[])it.next();
 
-    	    System.out.println(new String(data, 0, data.length));
+        	    System.out.println(new String(data, 0, data.length));
+        	}
     	}
-    	
+
+//    	
     	
     	String userJsonStr = objectMapper.writeValueAsString(listest2);
     	//System.out.print(userJsonStr);
@@ -267,8 +274,7 @@ ListData item = new ListData ();
     
     @Bean
     JedisConnectionFactory jedisConnectionFactory() {
-        JedisConnectionFactory jedisConFactory
-        = new JedisConnectionFactory();
+    	jedisConFactory = new JedisConnectionFactory();
       jedisConFactory.setHostName("localhost");
       jedisConFactory.setPort(6379);
       return jedisConFactory;
